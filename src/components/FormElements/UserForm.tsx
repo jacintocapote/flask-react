@@ -1,17 +1,31 @@
 "use client";
 import React, { useState } from 'react';
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import AlertError from '../Alerts/AlertError';
 import {createUser} from "@/api/users";
+import AlertSuccess from '../Alerts/AlertSuccess';
 
 const UserForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
   const addItem = () => {
     if (name && email) {
       createUser(name, email)
-      reloadData()
+      .then(data => {
+        if (data == "Error") {
+          setError("Error creating the user.")
+          setMessage("")
+        }
+        else {
+          reloadData()
+          setMessage("Created user.")
+          setError("")
+        }
+      })
     }
   }
 
@@ -19,6 +33,8 @@ const UserForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
     <>
       <Breadcrumb pageName="Form" />
 
+      {error.length > 0 && <AlertError message={error} /> }
+      {message.length > 0 && <AlertSuccess message={message} /> }
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-1">
         <div className="flex flex-col gap-9">
           {/* <!-- Input Fields --> */}

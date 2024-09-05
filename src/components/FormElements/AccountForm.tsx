@@ -1,17 +1,23 @@
 "use client";
 import React, { useState } from 'react';
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import {createAccount} from "@/api/accounts";
 
 const AccountForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const [Message, setMessage] = useState<string>('');
 
   const addItem = () => {
     if (name && email) {
-      createAccount(name, email)
-      reloadData()
+      try {
+        createAccount(name, email)
+        reloadData()
+      }
+      catch (error) {
+         = error;
+      }
     }
   }
 

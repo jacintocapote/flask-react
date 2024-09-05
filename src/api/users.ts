@@ -34,7 +34,7 @@ export async function createUser(name: string, email: string) {
         return await response.json();
     } catch (error) {
         console.error('Fetching data failed:', error);
-        return [];
+        return "Error";
     }
 }
 
@@ -52,6 +52,6 @@ export async function deleteUser(id: string) {
         return await response.json();
     } catch (error) {
         console.error('Fetching data failed:', error);
-        return [];
+        return "Error";
     }
 }
