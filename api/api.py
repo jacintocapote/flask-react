@@ -3,7 +3,7 @@ from flask_migrate import Migrate
 from app.models import db
 from app.controllers.user_controller import user_blueprint
 from app.controllers.bank_account_controller import account_blueprint
-from app.controllers.currency_controller import currency_blueprint
+from app.controllers.transaction_controller import transaction_blueprint
 
 def create_app():
     app = Flask(__name__)
@@ -14,7 +14,7 @@ def create_app():
 
     app.register_blueprint(user_blueprint, url_prefix='/api')
     app.register_blueprint(account_blueprint, url_prefix='/api')
-    app.register_blueprint(currency_blueprint, url_prefix='/api')
+    app.register_blueprint(transaction_blueprint, url_prefix='/api')
 
     return app
 

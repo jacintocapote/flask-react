@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import {createUser} from "@/api/users";
+import {createAccount} from "@/api/accounts";
 
-const UserForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
+const AccountForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
 
   const addItem = () => {
     if (name && email) {
-      createUser(name, email)
+      createAccount(name, email)
       reloadData()
     }
   }
@@ -25,7 +25,7 @@ const UserForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
           <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
               <h3 className="font-medium text-dark dark:text-white">
-                User
+                Account
               </h3>
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
@@ -67,11 +67,11 @@ const UserForm:  React.FC<{ reloadData: () => void }> = ({ reloadData }) => {
           onClick={addItem}
           className="bg-primary text-white px-10 py-3.5 lg:px-8 xl:px-10"
         >
-          Add User
+          Add Account
         </button>
       </div>
     </>
   );
 };
 
-export default UserForm;
+export default AccountForm;

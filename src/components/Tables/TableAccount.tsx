@@ -2,7 +2,7 @@ import { USER } from "@/types/user";
 import {getAllUsers, deleteUser} from '@/api/users';
 import React, { useEffect, useState } from 'react';
 
-const TableUser: React.FC<{ count: number }> = ({ count }) => {
+const TableAccount: React.FC<{ count: number }> = ({ count }) => {
   const [users, setUsers] = useState<USER | []>([]);
   const [error, setError] = useState<string | null>(null);
   const [reloadFlag, setReloadFlag] = useState(false);
@@ -154,4 +154,4 @@ const TableUser: React.FC<{ count: number }> = ({ count }) => {
   );
 };
 
-export default TableUser;
+export default TableAccount;

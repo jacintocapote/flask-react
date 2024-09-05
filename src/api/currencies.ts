@@ -2,7 +2,7 @@ import { CURRENCY } from "@/types/currency";
 
 const ALL_CURRENCIES = "/api/currencies";
 const CREATE_CURRENCY = "/api/currencies";
-const DELETE_CURRENCY = "/api/currency/"
+const DELETE_CURRENCY = "/api/currencies/"
 
 export const getAllCurrencies = async (): Promise<CURRENCY> => {
   try {

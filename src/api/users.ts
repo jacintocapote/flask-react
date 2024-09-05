@@ -2,7 +2,7 @@ import { USER } from "@/types/user";
 
 const ALL_USER = "/api/users";
 const CREATE_USER = "/api/users";
-const DELETE_USER = "/api/user/"
+const DELETE_USER = "/api/users/"
 
 export const getAllUsers = async (): Promise<USER> => {
   try {
