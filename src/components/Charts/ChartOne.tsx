@@ -6,11 +6,11 @@ import DefaultSelectOption from "@/components/SelectOption/DefaultSelectOption";
 const ChartOne: React.FC = () => {
   const series = [
     {
-      name: "Received Amount",
+      name: "New accounts",
       data: [0, 20, 35, 45, 35, 55, 65, 50, 65, 75, 60, 75],
     },
     {
-      name: "Due Amount",
+      name: "Removed accounts",
       data: [15, 9, 17, 32, 25, 68, 80, 68, 84, 94, 74, 62],
     },
   ];
@@ -134,12 +134,6 @@ const ChartOne: React.FC = () => {
           <h4 className="text-body-2xlg font-bold text-dark dark:text-white">
             Payments Overview
           </h4>
-        </div>
-        <div className="flex items-center gap-2.5">
-          <p className="font-medium uppercase text-dark dark:text-dark-6">
-            Short by:
-          </p>
-          <DefaultSelectOption options={["Monthly", "Yearly"]} />
         </div>
       </div>
       <div>

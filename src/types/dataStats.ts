@@ -3,6 +3,4 @@ export type dataStats = {
   color?: string;
   title?: string;
   value?: string;
-  growthRate?: number;
-  percent?: number;
 };
