@@ -37,6 +37,11 @@ class TransactionService:
         return new_transaction
 
     @staticmethod
+    def get_all_transactions():
+        """Retrieve all transactions across all accounts."""
+        return Transaction.query.all()
+
+    @staticmethod
     def get_transactions_by_account(bank_account_id):
         return Transaction.query.filter_by(bank_account_id=bank_account_id).all()
 

@@ -39,6 +39,19 @@ def get_transactions(bank_account_id):
         } for t in transactions]), 200
     return jsonify({"message": "No transactions found for this account."}), 404
 
+# Get all transactions across all accounts
+@transaction_blueprint.route('/transactions/all', methods=['GET'])
+def get_all_transactions():
+    transactions = TransactionService.get_all_transactions()
+    return jsonify([{
+        'id': t.id,
+        'transaction_type': t.transaction_type,
+        'amount': t.amount,
+        'currency': t.currency,
+        'bank_account_id': t.bank_account_id,  # Include bank account ID for clarity
+        'timestamp': t.timestamp.isoformat()
+    } for t in transactions]), 200
+
 # Get a specific transaction by its ID
 @transaction_blueprint.route('/transactions/<int:transaction_id>', methods=['GET'])
 def get_transaction(transaction_id):

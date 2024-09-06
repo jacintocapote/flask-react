@@ -1,4 +1,4 @@
-import Account from "@/components/Dashboard/Account";
+import Transaction from "@/components/Dashboard/Transaction";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import React from "react";
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const UserPage: React.FC = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Accounts" />
-      <Account/>
+      <Breadcrumb pageName="Transactions" />
+      <Transaction/>
       
  
     </DefaultLayout>

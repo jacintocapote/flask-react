@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const UserPage: React.FC = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Account" />
+      <Breadcrumb pageName="Bank Accounts" />
       <Account/>
       
  

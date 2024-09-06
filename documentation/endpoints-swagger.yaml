@@ -254,7 +254,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-
+  /transactions/all:
+    get:
+      summary: 'Get all transactions across all accounts'
+      responses:
+        200:
+          description: 'List of all transactions'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
   /transactions/{transaction_id}:
     get:
       summary: Get a specific transaction by ID
