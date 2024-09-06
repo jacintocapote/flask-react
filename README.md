@@ -2,7 +2,7 @@
 
 How execute this example:
 
-1.- First enable virtualenv for python.
+First enable virtualenv for python.
    * cd /api
    * python3 -m venv .
    * source ./bin/active
