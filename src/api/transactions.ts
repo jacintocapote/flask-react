@@ -4,7 +4,7 @@ const ALL_TRANSACTION = "/api/transactions/all";
 const CREATE_TRANSACTION = "/api/transactions";
 const DELETE_TRANSACTION = "/api/transactions/"
 
-export const getAllTransactions = async (): Promise<TRANSACTION> => {
+export const getAllTransactions = async (): Promise<TRANSACTION | null> => {
   try {
       const response = await fetch(ALL_TRANSACTION);
       if (!response.ok) {
@@ -14,8 +14,7 @@ export const getAllTransactions = async (): Promise<TRANSACTION> => {
       return data;
   } catch (error) {
       console.error('Fetching data failed:', error);
-      const data_empty: TRANSACTION[] = [];
-      return data_empty;
+      return null;
   }
 };
 

@@ -1,6 +1,5 @@
 import { USER } from "@/types/user";
 import Image from "next/image";
-import {getAllUsers} from '@/api/users';
 
 const userData: USER[] = [
   {
@@ -29,9 +28,6 @@ const userData: USER[] = [
     email: "test@test.com"
   },
 ];
-
-
-const userData1: USER[] = getAllUsers();
 
 const TableUsers = () => {
   return (

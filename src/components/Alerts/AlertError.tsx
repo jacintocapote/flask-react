@@ -1,6 +1,10 @@
 import React from "react";
 
-const AlertError = ({message}) => {
+interface AlertErrorProps {
+  message: string;  // Specify that 'message' is of type 'string'
+}
+
+const AlertError = ({message}: AlertErrorProps ) => {
   return (
     <>
       <div className="flex w-full rounded-[10px] border-l-6 border-red-light bg-red-light-5 px-7 py-8 dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">

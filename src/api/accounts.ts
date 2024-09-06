@@ -4,7 +4,7 @@ const ALL_ACCOUNT = "/api/accounts";
 const CREATE_ACCOUNT = "/api/accounts";
 const DELETE_ACCOUNT = "/api/accounts/"
 
-export const getAllAccounts = async (): Promise<ACCOUNT> => {
+export const getAllAccounts = async (): Promise<ACCOUNT | null> => {
   try {
       const response = await fetch(ALL_ACCOUNT);
       if (!response.ok) {
@@ -14,8 +14,7 @@ export const getAllAccounts = async (): Promise<ACCOUNT> => {
       return data;
   } catch (error) {
       console.error('Fetching data failed:', error);
-      const data_empty: ACCOUNT[] = [];
-      return data_empty;
+      return null
   }
 };
 

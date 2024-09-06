@@ -16,7 +16,9 @@ const TableTransaction: React.FC<{ count: number }> = ({ count }) => {
     const getTransactions = async () => {
       try {
         const fetchedTransactions = await getAllTransactions();
-        setTransactions(fetchedTransactions);
+        if (fetchedTransactions) {
+          setTransactions(fetchedTransactions);
+        }
       } catch (err) {
         setError('Failed to fetch transactions');
       }
@@ -83,7 +85,7 @@ const TableTransaction: React.FC<{ count: number }> = ({ count }) => {
           </div>
         </div>
 
-        {transactions.map((transaction, key) => (
+        {(transactions as any[]).map((transaction, key) => (
           <div
             className={`grid grid-cols-4 sm:grid-cols-7 ${
               key === transaction.length - 1

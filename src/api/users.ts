@@ -4,7 +4,7 @@ const ALL_USER = "/api/users";
 const CREATE_USER = "/api/users";
 const DELETE_USER = "/api/users/"
 
-export const getAllUsers = async (): Promise<USER> => {
+export const getAllUsers = async (): Promise<USER | null> => {
   try {
       const response = await fetch(ALL_USER);
       if (!response.ok) {
@@ -14,8 +14,7 @@ export const getAllUsers = async (): Promise<USER> => {
       return data;
   } catch (error) {
       console.error('Fetching data failed:', error);
-      const data_empty: USER[] = [];
-      return data_empty;
+      return null;
   }
 };
 

@@ -16,7 +16,10 @@ const TableUser: React.FC<{ count: number }> = ({ count }) => {
     const getUsers = async () => {
       try {
         const fetchedUsers = await getAllUsers();
-        setUsers(fetchedUsers);
+
+        if (fetchedUsers) {
+          setUsers(fetchedUsers);
+        }
       } catch (err) {
         setError('Failed to fetch users');
       }
@@ -68,7 +71,7 @@ const TableUser: React.FC<{ count: number }> = ({ count }) => {
           </div>
         </div>
 
-        {users.map((user, key) => (
+        {(users as any[]).map((user, key) => (
           <div
             className={`grid grid-cols-4 sm:grid-cols-4 ${
               key === user.length - 1

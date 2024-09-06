@@ -1,6 +1,10 @@
 import React from "react";
 
-const AlertSuccess = ({message}) => {
+interface AlertSuccessProps {
+  message: string;  // Specify that 'message' is of type 'string'
+}
+
+const AlertSuccess = ({message}: AlertSuccessProps) => {
   return (
     <>
       <div className="flex w-full rounded-[10px] border-l-6 border-green bg-green-light-7 px-7 py-8 dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
