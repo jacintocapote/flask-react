@@ -257,13 +257,17 @@ paths:
   /transactions/all:
     get:
       summary: 'Get all transactions across all accounts'
+      tags:
+        - Transactions
       responses:
-        200:
+        '200':
           description: 'List of all transactions'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Transaction'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
   /transactions/{transaction_id}:
     get:
       summary: Get a specific transaction by ID
